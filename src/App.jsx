@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header.jsx";
 import TodoList from "./components/TodoList.jsx";
 import AddTodoForm from "./components/AddTodoForm.jsx";
+import SearchBar from "./components/SearchBar.jsx";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -27,11 +28,22 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const [searchText, setSearchText] = useState("");
+
+  const filteredTodos = todos.filter((todo) =>
+    todo.text.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <div>
       <Header />
+      <SearchBar onSearch={setSearchText} />
       <AddTodoForm onAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleComplete} onDelete={onDelete} />
+      <TodoList
+        todos={filteredTodos}
+        onToggle={toggleComplete}
+        onDelete={onDelete}
+      />
     </div>
   );
 }

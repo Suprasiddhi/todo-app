@@ -16,6 +16,7 @@ function AddTodoForm({ onAdd }) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className="addTask"
         type="text"
         placeholder="Add a new task"
         value={text}
