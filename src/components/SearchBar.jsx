@@ -5,8 +5,8 @@ function SearchBar({ onSearch }) {
   const [searchText, setSearchText] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent page reload
-    onSearch(searchText); // send search text to parent
+    e.preventDefault();
+    onSearch(searchText);
   };
 
   const reloadPage = () => {

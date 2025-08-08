@@ -31,7 +31,7 @@ function App() {
   const [searchText, setSearchText] = useState("");
 
   const filteredTodos = todos.filter((todo) =>
-    todo.text.toLowerCase().includes(searchText.toLowerCase())
+    todo.text.trim().toLowerCase().includes(searchText.trim().toLowerCase())
   );
 
   return (
